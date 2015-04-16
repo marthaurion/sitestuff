@@ -16,8 +16,8 @@
 <hr />
 
 <div>
-    <h4>Comments</h4>
     @if(count($article->topLevelComments()) > 0)
+        <h4>Comments</h4>
         @foreach($article->topLevelComments() as $comment)
             <div class="comment">
                 <div class="comment-pic"></div>

@@ -3,7 +3,7 @@
 @section('content')
 	<h1>Contact Me!</h1>
 
-    {!! Form::open() !!}
+    {!! Form::open(['route' => 'contact']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Name') !!}
             {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'First & Last Name']) !!}

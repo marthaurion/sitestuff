@@ -13,7 +13,8 @@
 
 Route::get('/', 'ArticlesController@index');
 
-Route::get('contact', 'PagesController@contact');
+Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
+Route::post('contact', 'PagesController@sendContact');
 Route::get('about', 'PagesController@about');
 
 Route::resource('articles', 'ArticlesController');

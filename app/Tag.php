@@ -8,7 +8,7 @@ class Tag extends Model {
 
     /**
      * Get all articles with a given tag.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
 	public function articles()
