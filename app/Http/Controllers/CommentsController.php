@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
 use Auth;
 use App\User;
+use App\Commenter;
 use App\Article;
 
 class CommentsController extends Controller {
@@ -59,15 +60,15 @@ class CommentsController extends Controller {
     private function createComment(CommentRequest $request)
     {
         if(Auth::check()) {
-            $article = Auth::user()->comments()->create($request->all());
+            $request['username'] = Auth::user()->username;
+            $request['email'] = Auth::user()->email;
         }
-        else {
-            $user = User::where('email', '=', $request['email'])->first();
-            if(empty($user)){
-                $user = User::create(['email' => $request['email'], 'username' => $request['username']]);
-            }
-            $article = $user->comments()->create($request->all());
+
+        $user = Commenter::where('email', '=', $request['email'])->first();
+        if(empty($user)){
+            $user = Commenter::create(['email' => $request['email'], 'username' => $request['username']]);
         }
+        $article = $user->comments()->create($request->all());
 
         return $article;
     }
