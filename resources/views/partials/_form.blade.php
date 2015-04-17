@@ -9,6 +9,11 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('excerpt', 'Excerpt: ') !!}
+    {!! Form::textarea('excerpt', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
 	{!! Form::label('published_at', 'Published On: ') !!}
 	{!! Form::input('datetime-local', 'published_at', $article->published_at, ['class' => 'form-control']) !!}
 </div>

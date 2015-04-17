@@ -8,6 +8,7 @@ class Article extends Model {
 	protected $fillable = [
 		'title',
 		'body',
+        'excerpt',
 		'published_at',
 		'user_id',
 		'cat_id'
@@ -119,5 +120,15 @@ class Article extends Model {
     public function comments()
     {
         return $this->hasMany('App\Comment', 'article_id', 'id');
+    }
+
+    public function media()
+    {
+        return $this->hasMany('App\Media', 'article_id', 'id');
+    }
+
+    public function firstImage()
+    {
+        return $this->media->first();
     }
 }

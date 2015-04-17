@@ -17,7 +17,17 @@
             @endif
             </p>
 
-            <p class="blog-post-content">{{ $article->body }}</p>
+            @if(isset($article->excerpt))
+                <div id="excerpt">
+                    <div style="float:left;">
+                        <img src="{{ $article->firstImage()->path }}" width="200">
+                    </div>
+                    <p class="blog-post-content">{{ $article->excerpt }}</p>
+                    <div style="clear:both"></div>
+                </div>
+            @else
+                <p class="blog-post-content">{{ $article->body }}</p>
+            @endif
 
 			@include('partials._meta')
 
