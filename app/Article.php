@@ -109,7 +109,7 @@ class Article extends Model {
      */
     public function topLevelComments()
     {
-        return Comment::where('article_id', '=', $this->id)->whereNull('parent')->get();
+        return Comment::where('article_id', '=', $this->id)->whereNull('parent')->oldest()->get();
     }
 
     /**

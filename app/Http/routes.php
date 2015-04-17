@@ -44,6 +44,12 @@ Route::put('articles/{articles}', [
 Route::patch('articles/{articles}', 'ArticlesController@update');
 
 
+Route::post('comments', [
+    'as' => 'comments.store',
+    'uses' => 'CommentsController@store'
+]);
+
+
 Route::get('category/{title}', [ 'as' => 'category.index', 'uses' => 'ArticlesController@category' ]);
 Route::get('tags/{tag}', [ 'as' => 'tag.index', 'uses' => 'ArticlesController@tags' ]);
 
