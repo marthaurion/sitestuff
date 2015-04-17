@@ -23,3 +23,5 @@
     {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
 </div>
 {!! Form::close() !!}
+
+@include('errors.list')
