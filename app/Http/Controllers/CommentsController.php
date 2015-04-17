@@ -59,11 +59,6 @@ class CommentsController extends Controller {
 
     private function createComment(CommentRequest $request)
     {
-        if(Auth::check()) {
-            $request['username'] = Auth::user()->username;
-            $request['email'] = Auth::user()->email;
-        }
-
         $user = Commenter::where('email', '=', $request['email'])->first();
         if(empty($user)){
             $user = Commenter::create(['email' => $request['email'], 'username' => $request['username']]);

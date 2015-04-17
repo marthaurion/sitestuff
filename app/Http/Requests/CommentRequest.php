@@ -22,16 +22,11 @@ class CommentRequest extends Request {
 	 */
 	public function rules()
 	{
-        if(Auth::check()) {
-            return [ 'body' => 'required' ];
-        }
-        else {
-            return [
-                'username' => 'required',
-                'email' => 'required',
-                'body' => 'required',
-            ];
-        }
+        return [
+            'username' => 'required',
+            'email' => 'required',
+            'body' => 'required',
+        ];
 	}
 
 }
