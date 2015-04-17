@@ -8,7 +8,7 @@ class Comment extends Model {
         'body',
         'parent',
         'article_id',
-        'user_id',
+        'commenter_id',
     ];
 
     /**
@@ -48,7 +48,7 @@ class Comment extends Model {
      */
     public function author()
     {
-        return $this->belongsTo('App\User', 'user_id', 'id');
+        return $this->belongsTo('App\Commenter', 'commenter_id', 'id');
     }
 
 }
