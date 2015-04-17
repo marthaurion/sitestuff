@@ -17,7 +17,33 @@ Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 Route::post('contact', 'PagesController@sendContact');
 Route::get('about', 'PagesController@about');
 
-Route::resource('articles', 'ArticlesController');
+Route::get('articles', [
+    'as' => 'articles.index',
+    'uses' => 'ArticlesController@index'
+]);
+Route::get('articles/create', [
+    'as' => 'articles.create',
+    'uses' => 'ArticlesController@create'
+]);
+Route::post('articles', [
+    'as' => 'articles.store',
+    'uses' => 'ArticlesController@store'
+]);
+Route::get('articles/{articles}', [
+    'as' => 'articles.show',
+    'uses' => 'ArticlesController@show'
+]);
+Route::get('articles/{articles}/edit', [
+    'as' => 'articles.edit',
+    'uses' => 'ArticlesController@edit'
+]);
+Route::put('articles/{articles}', [
+    'as' => 'articles.update',
+    'uses' => 'ArticlesController@update'
+]);
+Route::patch('articles/{articles}', 'ArticlesController@update');
+
+
 Route::get('category/{title}', [ 'as' => 'category.index', 'uses' => 'ArticlesController@category' ]);
 Route::get('tags/{tag}', [ 'as' => 'tag.index', 'uses' => 'ArticlesController@tags' ]);
 

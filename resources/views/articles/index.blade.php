@@ -26,6 +26,6 @@
 	@endforeach
 
     <nav>
-	    <?php echo $articles->render(); ?>
+	    {!! $articles->render() !!}
     </nav>
 @stop
