@@ -14,8 +14,13 @@ class AddModerationToCommentsTable extends Migration {
 	{
 		Schema::table('comments', function(Blueprint $table)
 		{
-			//
+			$table->boolean('approved');
 		});
+
+        Schema::table('commenters', function(Blueprint $table)
+        {
+            $table->boolean('approved');
+        });
 	}
 
 	/**
@@ -27,8 +32,13 @@ class AddModerationToCommentsTable extends Migration {
 	{
 		Schema::table('comments', function(Blueprint $table)
 		{
-			//
+			$table->dropColumn('approved');
 		});
+
+        Schema::table('commenters', function(Blueprint $table)
+        {
+            $table->dropColumn('approved');
+        });
 	}
 
 }

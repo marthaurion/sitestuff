@@ -9,6 +9,7 @@ class Comment extends Model {
         'parent',
         'article_id',
         'commenter_id',
+        'approved',
     ];
 
     /**
@@ -49,6 +50,11 @@ class Comment extends Model {
     public function author()
     {
         return $this->belongsTo('App\Commenter', 'commenter_id', 'id');
+    }
+
+    public function approvedComments()
+    {
+        return $this->where('approved', '=', '1');
     }
 
 }

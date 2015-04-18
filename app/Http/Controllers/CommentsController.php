@@ -18,9 +18,11 @@ class CommentsController extends Controller {
 	 */
 	public function store(CommentRequest $request)
 	{
-        $this->createComment($request);
+        $comment = $this->createComment($request);
 
-        session()->flash('flash_message', 'Your comment has been posted!');
+        if($comment->approved) session()->flash('flash_message', 'Your comment has been posted!');
+        else session()->flash('flash_message', 'Your comment is in queue for moderation.');
+
         return redirect(route('articles.show', Article::find($request['article_id'])->slug));
 	}
 
@@ -63,9 +65,12 @@ class CommentsController extends Controller {
         if(empty($user)){
             $user = Commenter::create(['email' => $request['email'], 'username' => $request['username']]);
         }
-        $article = $user->comments()->create($request->all());
 
-        return $article;
+        $request['approved'] = $user->approved;
+
+        $comment = $user->comments()->create($request->all());
+
+        return $comment;
     }
 
 }
