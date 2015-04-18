@@ -16,7 +16,7 @@ class ReplaceUserIdCommentsTable extends Migration {
 		{
 			$table->dropForeign('comments_user_id_foreign');
             $table->dropColumn('user_id');
-            $table->integer('commenter_id')->unsigned();
+            $table->integer('commenter_id')->unsigned()->default('1');
             $table->foreign('commenter_id')->references('id')->on('commenters')
                 ->onDelete('cascade');
 		});
