@@ -67,6 +67,7 @@ class CommentsController extends Controller {
         }
 
         $request['approved'] = $user->approved;
+        if(empty($request['approved'])) $request['approved'] = false;
 
         $comment = $user->comments()->create($request->all());
 
