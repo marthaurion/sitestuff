@@ -147,6 +147,7 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'App\Providers\ViewComposerServiceProvider',
         'Roumen\Feed\FeedServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 
 	],
 
@@ -198,6 +199,7 @@ return [
 		'Form'		=> 'Illuminate\Html\FormFacade',
 		'Html'		=> 'Illuminate\Html\HtmlFacade',
         'Feed'      => 'Roumen\Feed\Facades\Feed',
+        'Debugbar'  => 'Barryvdh\Debugbar\Facade',
 
 	],
 
