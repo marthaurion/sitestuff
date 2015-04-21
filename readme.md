@@ -10,8 +10,5 @@ Notes to self:
 	- creation of categories
 	- comment moderation
 	- viewing logs
-- Validation for fields needs to be evaluated (an example is email prompt for comments).
 - Database seeding.
-- Need to convert some of my model methods to scopes.
 - Need to implement deletion for most models.
-
