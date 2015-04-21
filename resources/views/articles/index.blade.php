@@ -36,6 +36,6 @@
 	@endforeach
 
     <nav>
-	    {!! $articles->render() !!}
+	    {!! $articles->render(new \App\PaginationPresenter($articles)) !!}
     </nav>
 @stop
