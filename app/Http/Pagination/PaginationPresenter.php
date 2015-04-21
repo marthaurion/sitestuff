@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\Http\Pagination;
 
 use Illuminate\Pagination\SimpleBootstrapThreePresenter;
 
