@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class CommentRequest extends Request {
+class ContactRequest extends Request {
 
     /**
      * Determine if the user is authorized to make this request.
