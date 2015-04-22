@@ -8,12 +8,12 @@
 			</h2>
 
             <p class="blog-post-meta">Published by {{ $article->author->username }} on {{ date("M j, Y", strtotime($article->published_at)) }}.
-            @if(count($article->comments->approved()) == 0)
+            @if(count($article->comments()->approved()) == 0)
                 No comments.
-            @elseif(count($article->comments->approved()) == 1)
+            @elseif(count($article->comments()->approved()) == 1)
                     1 comment.
             @else
-                {{ count($article->comments->approved()) }} comments.
+                {{ count($article->comments()->approved()) }} comments.
             @endif
             </p>
 
