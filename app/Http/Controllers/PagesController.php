@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Mail;
+use App\Http\Requests\ContactRequest;
 
 class PagesController extends Controller {
 
