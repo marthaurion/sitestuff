@@ -19,24 +19,24 @@
                     <a href="/admin">Dashboard</a>
                 </li>
                 <li>
-                    Posts
+                    <a href="#">Posts</a>
                 </li>
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#meta">Meta<i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="meta" class="collapse">
                         <li>
-                            Categories
+                            <a href="#">Categories</a>
                         </li>
                         <li>
-                            Tags
+                            <a href="#">Tags</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    Comments
+                    <a href="#">Comments</a>
                 </li>
                 <li>
-                    Logs
+                    <a href="#">Logs</a>
                 </li>
             </ul>
         </div>
