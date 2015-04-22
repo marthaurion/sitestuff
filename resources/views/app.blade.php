@@ -10,48 +10,50 @@
 <link rel="stylesheet" href="/css/all.css">
 </head>
 
-<nav class="navbar navbar-inverse navbar-static-top">
-	<div class="container">
-		<div class="navbar-header"><a class="navbar-brand" href="/">Marth's Totally Legit Test Site</a></div>
-
-		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
-				<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="/about">About</a></li>
-				<li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="/contact">Contact</a></li>
-                @if(!empty(Auth::user()) && Auth::user()->isSuper())
-                    <li><a href="/articles/create">Create</a></li>
-                @endif
-			</ul>
-		</div>
-	</div>
-</nav>
-
 <body>
-<div id="everything" class="container">
-    @if(Session::has('flash_message'))
-        <div class="alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
-            @if(Session::has('flash_message_important'))
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            @endif
+<div id="wrapper">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand" href="/">Marth's Totally Legit Test Site</a></div>
 
-            {{ session('flash_message') }}
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
+                    <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="/about">About</a></li>
+                    <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="/contact">Contact</a></li>
+                    @if(!empty(Auth::user()) && Auth::user()->isSuper())
+                        <li><a href="/articles/create">Create</a></li>
+                    @endif
+                </ul>
+            </div>
         </div>
-    @endif
+    </nav>
 
-    <div class="row">
-    <div id="content" class="col-sm-8">
-		@yield('content')
-    </div> <!-- end #content -->
+    <div id="page-wrapper" class="container">
+        @if(Session::has('flash_message'))
+            <div class="alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
+                @if(Session::has('flash_message_important'))
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                @endif
 
-    <div id="sidebar" class="col-sm-3 col-sm-offset-1">
-        @include('partials._sidebar')
-    </div> <!-- end #sidebar -->
+                {{ session('flash_message') }}
+            </div>
+        @endif
 
-    </div> <!-- end #row -->
-	<hr />
-	<footer>&copy; Marth's Test Page | Powered by Marth's Free Time</footer> <!-- end #footer -->
-</div> <!-- end #everything -->
+        <div class="row">
+        <div id="content" class="col-sm-8">
+            @yield('content')
+        </div> <!-- end #content -->
+
+        <div id="sidebar" class="col-sm-3 col-sm-offset-1">
+            @include('partials._sidebar')
+        </div> <!-- end #sidebar -->
+
+        </div> <!-- end #row -->
+        <hr />
+        <footer>&copy; Marth's Test Page | Powered by Marth's Free Time</footer> <!-- end #footer -->
+    </div> <!-- end #page-wrapper -->
+</div> <!-- end #wrapper -->
 
 <script src="/js/all.js"></script>
 @yield('footer')
