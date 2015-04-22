@@ -13,6 +13,33 @@
 <div id="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header"><a class="navbar-brand" href="/admin">Marth's Admin</a></div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="/admin">Dashboard</a>
+                </li>
+                <li>
+                    Posts
+                </li>
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#meta">Meta<i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="meta" class="collapse">
+                        <li>
+                            Categories
+                        </li>
+                        <li>
+                            Tags
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Comments
+                </li>
+                <li>
+                    Logs
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <div id="page-wrapper">
