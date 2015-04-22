@@ -1,6 +1,7 @@
 <?php namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class IsSuperUser {
     /**
@@ -12,8 +13,12 @@ class IsSuperUser {
      */
     public function handle($request, Closure $next)
     {
-        if(!$request->user() || !$request->user()->isSuper())
+        if(!Auth::check()) {
+            return redirect()->guest('auth/login');
+        }
+        elseif(!Auth::user()->isSuper())
         {
+            session()->flash('flash_message', 'You do not have authorization to view this page.');
             return redirect('/');
         }
 
