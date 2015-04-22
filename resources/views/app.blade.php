@@ -30,7 +30,7 @@
     </nav>
 
     <div id="page-wrapper">
-        <div class="container-fluid">
+        <div class="container">
             @if(Session::has('flash_message'))
                 <div class="alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
                     @if(Session::has('flash_message_important'))
