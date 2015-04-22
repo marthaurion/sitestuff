@@ -109,7 +109,12 @@ class Article extends Model {
      */
     public function topLevelComments()
     {
-        return Comment::approved()->where('article_id', '=', $this->id)->whereNull('parent')->oldest()->get();
+        return Comment::where('approved', '=', true)->where('article_id', '=', $this->id)->whereNull('parent')->oldest()->get();
+    }
+
+    public function approvedComments()
+    {
+        return $this->comments()->where('approved', '=', true)->get();
     }
 
     /**
