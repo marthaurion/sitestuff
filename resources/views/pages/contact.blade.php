@@ -25,4 +25,6 @@
 
     {!! Form::close() !!}
 
+    @include('errors.list')
+
 @stop
