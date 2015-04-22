@@ -3,3 +3,5 @@
 .env
 .idea
 /public/images/*
+/public/css/*
+/public/js/*

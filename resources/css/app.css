@@ -1,6 +1,3 @@
-body {
-  font-family: Georgia, "Times New Roman", Times, serif; }
-
 #page-wrapper {
   margin-top: 70px; }
 
@@ -16,6 +13,10 @@ body {
 
 .blog-post-content {
   font-size: 18px; }
+
+.blog-thumb {
+  float: left;
+  margin-right: 20px; }
 
 /* Sidebar modules for boxing content */
 .sidebar-module {
