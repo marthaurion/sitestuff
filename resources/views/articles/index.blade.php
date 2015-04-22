@@ -19,7 +19,7 @@
 
             @if(isset($article->excerpt))
                 <div id="excerpt">
-                    <div style="float:left;">
+                    <div class="blog-thumb">
                         <img src="{{ $article->firstImage()->path }}" width="200">
                     </div>
                     <p class="blog-post-content">{{ $article->excerpt }}</p>
