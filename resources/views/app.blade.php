@@ -12,7 +12,7 @@
 
 <body>
 <div id="wrapper">
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header"><a class="navbar-brand" href="/">Marth's Totally Legit Test Site</a></div>
 
@@ -29,29 +29,31 @@
         </div>
     </nav>
 
-    <div id="page-wrapper" class="container">
-        @if(Session::has('flash_message'))
-            <div class="alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
-                @if(Session::has('flash_message_important'))
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                @endif
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            @if(Session::has('flash_message'))
+                <div class="alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
+                    @if(Session::has('flash_message_important'))
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    @endif
 
-                {{ session('flash_message') }}
-            </div>
-        @endif
+                    {{ session('flash_message') }}
+                </div>
+            @endif
 
-        <div class="row">
-        <div id="content" class="col-sm-8">
-            @yield('content')
-        </div> <!-- end #content -->
+            <div class="row">
+            <div id="content" class="col-sm-8">
+                @yield('content')
+            </div> <!-- end #content -->
 
-        <div id="sidebar" class="col-sm-3 col-sm-offset-1">
-            @include('partials._sidebar')
-        </div> <!-- end #sidebar -->
+            <div id="sidebar" class="col-sm-3 col-sm-offset-1">
+                @include('partials._sidebar')
+            </div> <!-- end #sidebar -->
 
-        </div> <!-- end #row -->
-        <hr />
-        <footer>&copy; Marth's Test Page | Powered by Marth's Free Time</footer> <!-- end #footer -->
+            </div> <!-- end #row -->
+            <hr />
+            <footer>&copy; Marth's Test Page | Powered by Marth's Free Time</footer> <!-- end #footer -->
+        </div>
     </div> <!-- end #page-wrapper -->
 </div> <!-- end #wrapper -->
 
