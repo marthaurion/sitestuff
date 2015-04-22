@@ -17,6 +17,10 @@ Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 Route::post('contact', 'PagesController@sendContact');
 Route::get('about', 'PagesController@about');
 
+
+Route::get('admin', 'AdminController@index');
+
+
 Route::get('articles', [
     'as' => 'articles.index',
     'uses' => 'ArticlesController@index'
