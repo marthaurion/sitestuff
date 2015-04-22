@@ -52,4 +52,9 @@ class Comment extends Model {
         return $this->belongsTo('App\Commenter', 'commenter_id', 'id');
     }
 
+    public function scopeApproved($query)
+    {
+        $query->where('approved', '=', true);
+    }
+
 }
