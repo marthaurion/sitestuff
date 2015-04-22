@@ -20,10 +20,16 @@ elixir(function(mix) {
 		'libs/select2.min.css'
 	]);
 
+	mix.styles([
+		'libs/bootstrap.min.css',
+		'libs/sb-admin.css'
+	], 'public/css/admin.css');
+
 	mix.scripts([
 		'libs/jquery.js',
 		'libs/bootstrap.min.js',
 		'libs/select2.min.js',
         'app.js'
 	]);
+
 });
