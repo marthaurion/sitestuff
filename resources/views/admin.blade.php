@@ -33,7 +33,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Comments</a>
+                    <a href="/admin/comments">Comments</a>
                 </li>
                 <li>
                     <a href="#">Logs</a>

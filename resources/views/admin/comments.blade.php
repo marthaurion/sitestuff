@@ -24,11 +24,13 @@
                     </thead>
                     <tbody>
                         @foreach($comments as $comment)
-                            <td><a href="/articles/{{ $comment->article->slug }}">{{ $comment->article->title }}</a></td>
-                            <td>{{ $comment->author->username }}</td>
-                            <td>{{ $comment->author->email }}</td>
-                            <td>{{ $comment->body }}</td>
-                            <td><a href="#">Approve</a></td>
+                            <tr>
+                                <td><a href="/articles/{{ $comment->article->slug }}">{{ $comment->article->title }}</a></td>
+                                <td>{{ $comment->author->username }}</td>
+                                <td>{{ $comment->author->email }}</td>
+                                <td>{{ $comment->body }}</td>
+                                <td><a href="#">Approve</a></td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
