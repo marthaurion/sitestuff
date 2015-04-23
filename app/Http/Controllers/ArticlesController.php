@@ -89,9 +89,9 @@ class ArticlesController extends Controller {
         $mytags = array();
 
         foreach($request->input('tag_list') as $key => $tag) {
-            if(Tag::where('name', '=', $tag)->count() == 0) {
+            if(Tag::find($tag)) {
                 $temp = Tag::create(['name' => $tag]);
-                $mytags[$key] = $temp;
+                $mytags[$key] = $temp->id;
             }
             else $mytags[$key] = $tag;
         }
