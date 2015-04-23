@@ -8,16 +8,14 @@
 			</h2>
 
             <p class="blog-post-meta">Published by {{ $article->author->username }} on {{ $article->publishedString() }}.
-            @if(count($article->approvedComments()) == 0)
-                No comments.
-            @elseif(count($article->approvedComments()) == 1)
-                    1 comment.
+            @if(count($article->approvedComments()) == 1)
+                1 comment.
             @else
                 {{ count($article->approvedComments()) }} comments.
             @endif
             </p>
 
-            @if(isset($article->excerpt))
+            @if($article->excerpt)
                 <div id="excerpt">
                     <div class="blog-thumb">
                         @if($article->firstImage())
