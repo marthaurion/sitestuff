@@ -20,7 +20,7 @@
             @if(isset($article->excerpt))
                 <div id="excerpt">
                     <div class="blog-thumb">
-                        @if(isset($article->firstImage()))
+                        @if(!empty($article->firstImage()))
                             <img src="{{ $article->firstImage()->path }}" width="200">
                         @endif
                     </div>
