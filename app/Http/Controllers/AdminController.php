@@ -51,7 +51,7 @@ class AdminController extends Controller {
 
     public function approve($id)
     {
-        $comment = Comment::firstOrFail($id);
+        $comment = Comment::findOrFail($id);
         $comment->approved = true;
         $comment->save();
 
