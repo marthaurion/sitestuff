@@ -17,6 +17,15 @@ Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 Route::post('contact', 'PagesController@sendContact');
 Route::get('about', 'PagesController@about');
 
+Route::get('darkly', [
+    'as' => 'articles.darkly',
+    'uses' => 'ArticlesController@theme'
+]);
+Route::get('superhero', [
+    'as' => 'articles.superhero',
+    'uses' => 'ArticlesController@theme'
+]);
+
 
 Route::get('admin', 'AdminController@index');
 

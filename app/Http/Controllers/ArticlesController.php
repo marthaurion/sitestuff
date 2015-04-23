@@ -6,6 +6,7 @@ use App\Tag;
 use App\Http\Requests;
 use App\Http\Requests\ArticleRequest;
 use Auth;
+use Route;
 
 
 class ArticlesController extends Controller {
@@ -23,6 +24,16 @@ class ArticlesController extends Controller {
 
 		return view('articles.index', compact('articles'));
 	}
+
+    public function theme()
+    {
+        $articles = Article::latest('published_at')->published()->simplePaginate($this->page_limit);
+        $theme = 'all';
+        if(Route::currentRouteName() == 'articles.darkly') $theme = 'darkly';
+        else if(Route::currentRouteName() == 'articles.superhero') $theme = 'superhero';
+
+        return view('articles.index', compact('articles', 'theme'));
+    }
 
     public function category($slug)
     {

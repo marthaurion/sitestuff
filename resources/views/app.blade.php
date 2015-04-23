@@ -7,7 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Marth's Totally Legit Test Site</title>
+@if(empty($theme))
 <link rel="stylesheet" href="/css/all.css">
+@else
+<link rel="stylesheet" href="/css/{{ $theme }}.css">
+@endif
 </head>
 
 <body>
