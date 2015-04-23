@@ -5,8 +5,8 @@
 <div class="blog-post">
 
     <h2 class="blog-post-title">{{ $article->title }}</h2>
-    @if(!empty(Auth::user()) && Auth::user()->isSuper())
-    <p><a href="{{ '/articles/'.$article->slug."/edit" }}">Edit</a></p>
+    @if(Auth::check() && Auth::user()->isSuper())
+        <p><a href="{{ '/articles/'.$article->slug."/edit" }}">Edit</a></p>
     @endif
     <p class="blog-post-meta">Published by {{ $article->author->username }} on {{ date("M j, Y", strtotime($article->published_at)) }}</p>
     <div class="blog-post-content">{!! $article->body !!}</div>
@@ -19,7 +19,7 @@
         @if(count($article->topLevelComments()) > 0)
             <h4>Comments</h4>
             @foreach($article->topLevelComments() as $comment)
-                <div class="well comment">
+                <div id="comment-{{ $comment->id }}" class="well comment">
                     <div class="comment-pic"></div>
                     <p class="comment-author">{{ $comment->author->username }}</p>
                     <p class="comment-meta">{{ $comment->created_at }}</p>
@@ -27,10 +27,9 @@
                 </div>
                 <div style="clear: both;"></div>
             @endforeach
+            <hr />
         @endif
     </div>
-
-    <hr />
 
     <div>
         <h4>Leave a comment</h4>
