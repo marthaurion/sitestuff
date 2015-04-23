@@ -44,7 +44,9 @@ class AdminController extends Controller {
      */
     public function comments()
     {
-        //
+        $comments = Comment::where('approved', '=', false)->get();
+
+        return view('admin.comments', compact('comments'));
     }
 
 }
