@@ -9,9 +9,9 @@
 
             <p class="blog-post-meta">Published by {{ $article->author->username }} on {{ $article->publishedString() }}.
             @if(count($article->approvedComments()) == 1)
-                1 comment.
+                1 comment
             @else
-                {{ count($article->approvedComments()) }} comments.
+                {{ count($article->approvedComments()) }} comments
             @endif
             </p>
 
