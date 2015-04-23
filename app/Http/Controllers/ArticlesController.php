@@ -73,7 +73,8 @@ class ArticlesController extends Controller {
 
 	public function update($slug, ArticleRequest $request)
 	{
-        foreach($request->input('tag_list') as $tag) Tag::findOrNew($tag);
+        $tags = $this->checkTags($request->input('tag_list'));
+        $request->merge(['tag_list' => $tags]);
 
 		$article = Article::where('slug', '=', $slug)->firstOrFail();
 
@@ -86,19 +87,9 @@ class ArticlesController extends Controller {
 
 	private function createArticle(ArticleRequest $request)
     {
-        $mytags = array();
+        $tags = $this->checkTags($request->input('tag_list'));
+        $request->merge(['tag_list' => $tags]);
 
-        foreach($request->input('tag_list') as $key => $tag) {
-            if(Tag::find($tag)) $mytags[$key] = $tag;
-            else {
-                $temp = Tag::create(['name' => $tag]);
-                $mytags[$key] = $temp->id;
-            }
-        }
-
-        $request->merge(['tag_list' => $mytags]);
-
-        dd($request->input('tag_list'));
 
 		$article = Auth::user()->articles()->create($request->all());
 
@@ -106,6 +97,19 @@ class ArticlesController extends Controller {
 
 		return $article;
 	}
+
+    private function checkTags($tags) {
+        $mytags = array();
+        foreach($tags as $key => $tag) {
+            if(Tag::find($tag)) $mytags[$key] = $tag;
+            else {
+                $temp = Tag::create(['name' => $tag]);
+                $mytags[$key] = $temp->id;
+            }
+        }
+
+        return $mytags;
+    }
 
 	private function syncTags(Article $article, $tags)
 	{
