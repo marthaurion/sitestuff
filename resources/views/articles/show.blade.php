@@ -8,7 +8,7 @@
     @if(Auth::check() && Auth::user()->isSuper())
         <p><a href="{{ '/articles/'.$article->slug."/edit" }}">Edit</a></p>
     @endif
-    <p class="blog-post-meta">Published by {{ $article->author->username }} on {{ date("M j, Y", strtotime($article->published_at)) }}</p>
+    <p class="blog-post-meta">Published by {{ $article->author->username }} on {{ $article->publishedString() }}</p>
     <div class="blog-post-content">{!! $article->body !!}</div>
 
     @include('partials._meta')

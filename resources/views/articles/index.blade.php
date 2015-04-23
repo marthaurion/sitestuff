@@ -7,7 +7,7 @@
 				<a href="{{ url('/articles', $article->slug) }}">{{ $article->title }}</a>
 			</h2>
 
-            <p class="blog-post-meta">Published by {{ $article->author->username }} on {{ date("M j, Y", strtotime($article->published_at)) }}.
+            <p class="blog-post-meta">Published by {{ $article->author->username }} on {{ $article->publishedString() }}.
             @if(count($article->approvedComments()) == 0)
                 No comments.
             @elseif(count($article->approvedComments()) == 1)
