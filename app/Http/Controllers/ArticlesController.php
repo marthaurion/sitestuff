@@ -85,8 +85,20 @@ class ArticlesController extends Controller {
 	}
 
 	private function createArticle(ArticleRequest $request)
-	{
-        foreach($request->input('tag_list') as $tag) Tag::findOrNew($tag);
+    {
+        $mytags = array();
+
+        foreach($request->input('tag_list') as $key => $tag) {
+            if(Tag::where('name', '=', $tag)->count() == 0) {
+                $temp = Tag::create(['name' => $tag]);
+                $mytags[$key] = $temp;
+            }
+            else $mytags[$key] = $tag;
+        }
+
+        $request->merge(['tag_list' => $mytags]);
+
+        dd($request->input('tag_list'));
 
 		$article = Auth::user()->articles()->create($request->all());
 
