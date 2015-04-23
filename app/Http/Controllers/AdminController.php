@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Comment;
 
 class AdminController extends Controller {
 
@@ -17,7 +18,9 @@ class AdminController extends Controller {
      */
 	public function index()
     {
-        return view('admin.dashboard');
+        $modded = Comment::where('approved', '=', false)->count();
+
+        return view('admin.dashboard', compact('modded'));
     }
 
     /**
