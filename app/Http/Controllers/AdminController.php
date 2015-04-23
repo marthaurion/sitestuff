@@ -44,9 +44,18 @@ class AdminController extends Controller {
      */
     public function comments()
     {
-        $comments = Comment::where('approved', '=', false)->get();
+        $comments = Comment::where('approved', '=', false)->oldest()->get();
 
         return view('admin.comments', compact('comments'));
+    }
+
+    public function approve($id)
+    {
+        $comment = Comment::firstOrFail($id);
+        $comment->approved = true;
+        $comment->save();
+
+        return redirect('/admin/comments');
     }
 
 }

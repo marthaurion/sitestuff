@@ -25,6 +25,10 @@ Route::get('admin/comments', [
     'as' => 'admin.comments',
     'uses' => 'AdminController@comments'
 ]);
+Route::get('admin/comments/{$id}', [
+    'as' => 'admin.approve',
+    'uses' => 'AdminController@approve'
+]);
 
 
 Route::get('articles', [
