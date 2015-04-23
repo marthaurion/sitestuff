@@ -14,23 +14,23 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
 	mix.sass('app.scss', 'resources/css');
 
-	mix.styles([
+    mix.styles([
+        'libs/darkly/bootstrap.min.css',
+        'app.css',
+        'libs/select2.min.css'
+    ], 'public/css/darkly.css');
+
+/*	mix.styles([
 		'libs/slate/bootstrap.min.css',
 		'app.css',
 		'libs/select2.min.css'
 	]);
 
 	mix.styles([
-		'libs/darkly/bootstrap.min.css',
-		'app.css',
-		'libs/select2.min.css'
-	], 'public/css/darkly.css');
-
-	mix.styles([
 		'libs/superhero/bootstrap.min.css',
 		'app.css',
 		'libs/select2.min.css'
-	], 'public/css/superhero.css');
+	], 'public/css/superhero.css');*/
 
 	mix.styles([
 		'libs/bootstrap.min.css',
