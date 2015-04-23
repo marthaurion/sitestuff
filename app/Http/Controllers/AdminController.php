@@ -49,13 +49,13 @@ class AdminController extends Controller {
         return view('admin.comments', compact('comments'));
     }
 
-    public function approve($id)
+    public function approveComment($id)
     {
         $comment = Comment::findOrFail($id);
         $comment->approved = true;
         $comment->save();
 
-        return redirect('/admin/comments');
+        return redirect(route('admin.comments'));
     }
 
 }
