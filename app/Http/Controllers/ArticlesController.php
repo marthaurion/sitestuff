@@ -88,17 +88,17 @@ class ArticlesController extends Controller {
     {
         $mytags = array();
 
-        dd($request->input('tag_list'));
-
         foreach($request->input('tag_list') as $key => $tag) {
-            if(Tag::find($tag)) {
+            if(Tag::find($tag)) $mytags[$key] = $tag;
+            else {
                 $temp = Tag::create(['name' => $tag]);
                 $mytags[$key] = $temp->id;
             }
-            else $mytags[$key] = $tag;
         }
 
         $request->merge(['tag_list' => $mytags]);
+
+        dd($request->input('tag_list'));
 
 		$article = Auth::user()->articles()->create($request->all());
 
