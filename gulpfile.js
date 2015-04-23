@@ -21,6 +21,18 @@ elixir(function(mix) {
 	]);
 
 	mix.styles([
+		'libs/darkly/bootstrap.min.css',
+		'app.css',
+		'libs/select2.min.css'
+	], 'public/css/darkly.css');
+
+	mix.styles([
+		'libs/superhero/bootstrap.min.css',
+		'app.css',
+		'libs/select2.min.css'
+	], 'public/css/superhero.css');
+
+	mix.styles([
 		'libs/bootstrap.min.css',
 		'libs/sb-admin.css'
 	], 'public/css/admin.css');
