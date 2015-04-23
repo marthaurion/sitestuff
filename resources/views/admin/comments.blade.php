@@ -29,7 +29,7 @@
                                 <td>{{ $comment->author->username }}</td>
                                 <td>{{ $comment->author->email }}</td>
                                 <td>{{ $comment->body }}</td>
-                                <td><a href="#">Approve</a></td>
+                                <td><a href="/admin/comments/{{ $comment->id }}">Approve</a></td>
                             </tr>
                         @endforeach
                     </tbody>
