@@ -99,6 +99,8 @@ class ArticlesController extends Controller {
 	}
 
     private function checkTags($tags) {
+        if(empty($tags)) return null;
+
         $mytags = array();
         foreach($tags as $key => $tag) {
             if(Tag::find($tag)) $mytags[$key] = $tag;
