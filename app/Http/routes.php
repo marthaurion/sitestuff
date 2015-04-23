@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', 'ArticlesController@index');
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'ArticlesController@index'
+]);
 
 Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 Route::post('contact', 'PagesController@sendContact');

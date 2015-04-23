@@ -6,7 +6,6 @@ use App\Tag;
 use App\Http\Requests;
 use App\Http\Requests\ArticleRequest;
 use Auth;
-use Route;
 
 
 class ArticlesController extends Controller {
@@ -74,6 +73,8 @@ class ArticlesController extends Controller {
 
 	public function update($slug, ArticleRequest $request)
 	{
+        foreach($request->input('tag_list') as $tag) Tag::findOrNew($tag);
+
 		$article = Article::where('slug', '=', $slug)->firstOrFail();
 
 		$article->update($request->all());
@@ -85,6 +86,8 @@ class ArticlesController extends Controller {
 
 	private function createArticle(ArticleRequest $request)
 	{
+        foreach($request->input('tag_list') as $tag) Tag::findOrNew($tag);
+
 		$article = Auth::user()->articles()->create($request->all());
 
 		$this->syncTags($article, $request->input('tag_list'));
