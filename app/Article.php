@@ -120,7 +120,7 @@ class Article extends Model {
     public function publishedString() {
         $time = Carbon::parse($this->published_at);
         $time->setTimezone('America/Chicago');
-        return $time->format('M js, Y');
+        return $time->format('M jS, Y');
     }
 
     /**
