@@ -6,11 +6,11 @@
     <div id="stats">
         <ul>
             <li>HP: {{ $pokemon[0]->hp }}</li>
-            <li>HP: {{ $pokemon[0]->attack }}</li>
-            <li>HP: {{ $pokemon[0]->defense }}</li>
-            <li>HP: {{ $pokemon[0]->special_attack }}</li>
-            <li>HP: {{ $pokemon[0]->special_defense }}</li>
-            <li>HP: {{ $pokemon[0]->speed }}</li>
+            <li>Attack: {{ $pokemon[0]->attack }}</li>
+            <li>Defense: {{ $pokemon[0]->defense }}</li>
+            <li>Special Attack: {{ $pokemon[0]->special_attack }}</li>
+            <li>Special Defense: {{ $pokemon[0]->special_defense }}</li>
+            <li>Speed: {{ $pokemon[0]->speed }}</li>
         </ul>
     </div>
 
