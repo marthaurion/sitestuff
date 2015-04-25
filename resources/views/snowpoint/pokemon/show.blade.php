@@ -3,6 +3,17 @@
 @section('content')
     <h4>Content for {{ $pokemon[0]->name }}</h4>
 
+    <div id="stats">
+        <ul>
+            <li>HP: {{ $pokemon[0]->hp }}</li>
+            <li>HP: {{ $pokemon[0]->attack }}</li>
+            <li>HP: {{ $pokemon[0]->defense }}</li>
+            <li>HP: {{ $pokemon[0]->special_attack }}</li>
+            <li>HP: {{ $pokemon[0]->special_defense }}</li>
+            <li>HP: {{ $pokemon[0]->speed }}</li>
+        </ul>
+    </div>
+
     <h5>Moves</h5>
 
     <table class="table table-striped table-hover">
