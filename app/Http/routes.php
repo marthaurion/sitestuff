@@ -19,6 +19,8 @@ Route::get('/', [
 Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 Route::post('contact', 'PagesController@sendContact');
 Route::get('about', 'PagesController@about');
+Route::get('feed', 'FeedController@feed');
+
 
 Route::get('admin', [
     'as' => 'admin.index',
@@ -70,13 +72,21 @@ Route::post('comments', [
 Route::get('category/{title}', [ 'as' => 'category.index', 'uses' => 'ArticlesController@category' ]);
 Route::get('tags/{tag}', [ 'as' => 'tag.index', 'uses' => 'ArticlesController@tags' ]);
 
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('feed', 'FeedController@feed');
 
 Route::get('snowpoint', 'SnowpointController@index');
 Route::get('snowpoint/contact', 'SnowpointController@contact');
 Route::get('snowpoint/chat', 'SnowpointController@chat');
+Route::get('snowpoint/dex', [
+    'as' => 'pokemon.index',
+    'uses' => 'PokedexController@index'
+]);
+Route::get('snowpoint/pokemon/{id}', [
+    'as' => 'pokemon.show',
+    'uses' => 'PokedexController@show'
+]);
