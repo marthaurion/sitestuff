@@ -1,7 +1,7 @@
 @extends('snowpoint')
 
 @section('content')
-    <h4>Content for {{ $pokemon->name }}</h4>
+    <h4>Content for {{ $pokemon[0]->name }}</h4>
 
     <h4>Moves</h4>
 
