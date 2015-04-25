@@ -7,20 +7,18 @@
 				<a href="{{ url('/articles', $article->slug) }}">{{ $article->title }}</a>
 			</h2>
 
-            <p class="blog-post-meta">Published by {{ $article->author->username }} on {{ date("M j, Y", strtotime($article->published_at)) }}.
-            @if(count($article->approvedComments()) == 0)
-                No comments.
-            @elseif(count($article->approvedComments()) == 1)
-                    1 comment.
+            <p class="blog-post-meta">Published by {{ $article->author->username }} on {{ $article->publishedString() }}.
+            @if(count($article->approvedComments()) == 1)
+                1 comment
             @else
-                {{ count($article->approvedComments()) }} comments.
+                {{ count($article->approvedComments()) }} comments
             @endif
             </p>
 
-            @if(isset($article->excerpt))
+            @if($article->excerpt)
                 <div id="excerpt">
                     <div class="blog-thumb">
-                        @if(!empty($article->firstImage()))
+                        @if($article->firstImage())
                             <img src="{{ $article->firstImage()->path }}" width="200">
                         @endif
                     </div>

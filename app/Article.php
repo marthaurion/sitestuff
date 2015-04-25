@@ -117,6 +117,12 @@ class Article extends Model {
         return $this->comments()->where('approved', '=', true)->get();
     }
 
+    public function publishedString() {
+        $time = Carbon::parse($this->published_at);
+        $time->setTimezone('America/Chicago');
+        return $time->format('M jS, Y');
+    }
+
     /**
      * Eloquent relationship between Articles and Comments (One to Many)
      *
