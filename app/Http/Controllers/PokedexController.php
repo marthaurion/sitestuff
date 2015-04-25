@@ -31,7 +31,11 @@ class PokedexController extends Controller {
             ->orderBy('pokemon_moves_r.move_method')->orderBy('pokemon_moves.name')
             ->get();
 
-        if($moves->effect_chance) $moves->effect_text = str_replace('$effect_chance', $moves->effect_chance, $moves->effect_text);
+        foreach($moves as $move) {
+            if ($move->effect_chance) {
+                $move->effect_text = str_replace('$effect_chance', $move->effect_chance, $move->effect_text);
+            }
+        }
 
         return view('snowpoint.pokemon.show', compact('pokemon', 'moves'));
     }

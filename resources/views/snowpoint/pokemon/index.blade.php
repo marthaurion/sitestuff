@@ -5,7 +5,7 @@
 
     <ul>
         @foreach( $pokemon as $poke )
-            <a href="{{ route('pokemon.show', $poke->spec_id) }}"><li>{{ $poke->name }}</li></a>
+            <li><a href="{{ route('pokemon.show', $poke->spec_id) }}">{{ $poke->name }}</a></li>
         @endforeach
     </ul>
 @stop
