@@ -10,8 +10,8 @@ class PokedexController extends Controller {
 
     public function index()
     {
-        DB::table('pokemon')->get();
-        return 'Meh';
+        $pokemon = DB::table('pokemon_species')->get();
+        return view('snowpoint.pokemon.index', compact('pokemon'));
     }
 
     public function show($id)
@@ -28,8 +28,10 @@ class PokedexController extends Controller {
             ->join('pokemon_move_methods', 'pokemon_moves_r.move_method', '=', 'pokemon_move_methods.move_method_id')
             ->join('pokemon_types', 'pokemon_moves.type_id', '=', 'pokemon_types.type_id')
             ->select('pokemon_types.name as type', 'pokemon_moves.name', 'effect_text', 'effect_chance', 'move_method_text', 'damage_type')
-            ->orderBy('pokemon_moves_r.poke_id')->orderBy('pokemon_moves_r.move_method')
+            ->orderBy('pokemon_moves_r.move_method')->orderBy('pokemon_moves.name')
             ->get();
+
+        if($moves->effect_chance) $moves->effect_text = str_replace('$effect_chance', $moves->effect_chance, $moves->effect_text);
 
         return view('snowpoint.pokemon.show', compact('pokemon', 'moves'));
     }
