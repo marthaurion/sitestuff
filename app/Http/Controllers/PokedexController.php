@@ -22,7 +22,7 @@ class PokedexController extends Controller {
 
         if(count($pokemon) < 1) abort(404);
 
-        $first_one = $pokemon[0].pokemon_id;
+        $first_one = $pokemon[0]->pokemon_id;
         $moves = DB::table('pokemon_moves_r')->where('poke_id', $first_one)
             ->join('pokemon_moves', 'pokemon_moves_r.move_id', '=', 'pokemon_moves.move_id')
             ->join('pokemon_move_methods', 'pokemon_moves_r.move_method', '=', 'pokemon_move_methods.move_method_id')
