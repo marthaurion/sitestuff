@@ -5,11 +5,12 @@
 
     <h4>Moves</h4>
 
-    <table>
+    <table class="table table-striped table-hover">
         <tr>
             <th>Name</th>
             <th>Type</th>
             <th>Damage Class</th>
+            <th>Move Method</th>
             <th>Effect</th>
         </tr>
     @foreach($moves as $move)
@@ -17,6 +18,7 @@
             <td>{{ $move->name }}</td>
             <td>{{ $move->type }}</td>
             <td>{{ $move->damage_type }}</td>
+            <td>{{ $move->move_method_text }}</td>
             <td>{{ $move->effect_text }}</td>
         </tr>
     @endforeach
