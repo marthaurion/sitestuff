@@ -18,7 +18,7 @@
             <ul class="nav navbar-nav">
                 <li class="{{ Request::is('snowpoint') ? 'active' : '' }}"><a href="/snowpoint">Home</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">League Shit <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">League Stuff <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/league/rules">Rules</a></li>
                         <li><a href="/league/register">Registration</a></li>
