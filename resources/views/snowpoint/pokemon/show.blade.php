@@ -2,13 +2,17 @@
 
 @section('content')
     @foreach($pokemon as $poke)
-        <h4>Stats for {{ $poke->name }}</h4>
+        <h3>Information for {{ $poke->ex_name }}</h3>
 
+        <h4>Abilities</h4>
+        <ul>
         @foreach($poke->abilities as $ability)
-            <p>{{ $ability->name }}</p>
+            <li>{{ $ability->name }}</li>
         @endforeach
+        </ul>
 
         <div id="stats">
+            <h4>Stats</h4>
             <table class="table">
                 <tr><td>HP:</td><td>{{ $poke->hp }}</td></tr>
                 <tr><td>Attack:</td><td>{{ $poke->attack }}</td></tr>

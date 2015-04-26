@@ -29,6 +29,9 @@ class PokedexController extends Controller {
             foreach($ability as $ab) {
                 array_push($poke->abilities, $ab);
             }
+
+            if(isset($poke->form_name)) $poke->ex_name = $poke->form_name;
+            else $poke->ex_name = $poke->name;
         }
 
         if(count($pokemon) < 1) abort(404);
