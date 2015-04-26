@@ -7,7 +7,12 @@
         <h4>Abilities</h4>
         <ul>
         @foreach($poke->abilities as $ability)
-            <li>{{ $ability->name }}</li>
+            <li>
+                @if($ability->hidden)
+                    Hidden: 
+                @endif
+                {{ $ability->name }}
+            </li>
         @endforeach
         </ul>
 
