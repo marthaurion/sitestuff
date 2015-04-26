@@ -1,18 +1,24 @@
 @extends('snowpoint')
 
 @section('content')
-    <h4>Content for {{ $pokemon[0]->name }}</h4>
+    @foreach($pokemon as $poke)
+        <h4>Stats for {{ $poke->name }}</h4>
 
-    <div id="stats">
-        <ul>
-            <li>HP: {{ $pokemon[0]->hp }}</li>
-            <li>Attack: {{ $pokemon[0]->attack }}</li>
-            <li>Defense: {{ $pokemon[0]->defense }}</li>
-            <li>Special Attack: {{ $pokemon[0]->special_attack }}</li>
-            <li>Special Defense: {{ $pokemon[0]->special_defense }}</li>
-            <li>Speed: {{ $pokemon[0]->speed }}</li>
-        </ul>
-    </div>
+        @foreach($poke->abilities as $ability)
+            <p>{{ $ability->name }}</p>
+        @endforeach
+
+        <div id="stats">
+            <table class="table">
+                <tr><td>HP:</td><td>{{ $poke->hp }}</td></tr>
+                <tr><td>Attack:</td><td>{{ $poke->attack }}</td></tr>
+                <tr><td>Defense:</td><td>{{ $poke->defense }}</td></tr>
+                <tr><td>Special Attack:</td><td>{{ $poke->special_attack }}</td></tr>
+                <tr><td>Special Defense:</td><td>{{ $poke->special_defense }}</td></tr>
+                <tr><td>Speed:</td><td>{{ $poke->speed }}</td></tr>
+            </table>
+        </div>
+    @endforeach
 
     <h5>Moves</h5>
 

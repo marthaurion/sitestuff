@@ -20,6 +20,17 @@ class PokedexController extends Controller {
             ->join('pokemon_species', 'pokemon.species_id', '=', 'pokemon_species.spec_id')
             ->get();
 
+        foreach($pokemon as $poke) {
+            $ability = DB::table('pokemon_abilities_r')->where('poke_id', $poke->pokemon_id)
+                ->join('pokemon_abilities', 'pokemon_abilities_r.ability_id', '=', 'pokemon_abilities.ability_id')
+                ->get();
+
+            $poke->abilities = array();
+            foreach($ability as $ab) {
+                array_push($poke->abilities, $ab);
+            }
+        }
+
         if(count($pokemon) < 1) abort(404);
 
         $first_one = $pokemon[0]->pokemon_id;
