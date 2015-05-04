@@ -77,16 +77,3 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-
-
-Route::get('snowpoint', 'SnowpointController@index');
-Route::get('snowpoint/contact', 'SnowpointController@contact');
-Route::get('snowpoint/chat', 'SnowpointController@chat');
-Route::get('snowpoint/dex', [
-    'as' => 'pokemon.index',
-    'uses' => 'PokedexController@index'
-]);
-Route::get('snowpoint/pokemon/{id}', [
-    'as' => 'pokemon.show',
-    'uses' => 'PokedexController@show'
-]);
